@@ -15,7 +15,6 @@ async function main() {
   await mongoose.connect(mongoDB);
 }
 
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 

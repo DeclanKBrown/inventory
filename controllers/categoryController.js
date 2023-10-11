@@ -95,8 +95,8 @@ exports.category_delete_post = asyncHandler(async(req, res, next) => {
         })
         return
     } else {
-        await Category.findByIdAndRemove(req.body.categoryid)
-        res.redirect('/categorys')
+        await Category.findByIdAndRemove(req.params.id)
+        res.redirect('/categories')
     }
 })
 

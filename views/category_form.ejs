@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Category - <%= category.name %></title>
+    <title><%= title %></title>
 </head>
 
 <body>
-    <h1>Edit Category - <%= category.name %></h1>
+    <h1><%= title %></h1>
     <% if (locals.errors) { %>
         <ul>
             <% errors.forEach(function(error) { %>
@@ -18,8 +18,8 @@
     <% } %>
     <form method="POST" action="">
         <label for="name">Category Name:</label>
-        <input type="text" id="name" name="name" value="<%= category.name %>" required maxlength="100">
-        <button type="submit">Update Category</button>
+        <input type="text" id="name" name="name" value="<%= locals.category ? category.name : '' %>" required maxlength="100">
+        <button type="submit"><%= title %></button>
     </form>
 </body>
 

@@ -15,7 +15,7 @@ exports.category_list = asyncHandler(async(req, res, next) => {
 
 exports.category_detail = asyncHandler(async(req, res, next) => {
     const [category, categoryItems] = await Promise.all([
-        Category.find(req.params.id).exec(),
+        Category.findById(req.params.id).exec(),
         Item.find({ category: req.params.id }).exec()
     ])
 
@@ -129,7 +129,7 @@ exports.category_update_post = [
         })
 
         if (!errors.isEmpty()) {
-            res.render('category_update', {
+            res.render('category_form', {
                 title: 'Update Category',
                 category: category,
                 errors: errors.array(),

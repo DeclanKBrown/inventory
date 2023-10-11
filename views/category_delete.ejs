@@ -13,7 +13,7 @@
             <li><%= item.name %> - <%= item.price %></li>
         <% }); %>
     </ul>
-    <form method="post" action="/path/to/delete">
+    <form method="post" action="">
         <!-- Hidden input field for category ID -->
         <input type="hidden" name="categoryId" value="<%= category._id %>">
         <button type="submit">Delete Category</button>

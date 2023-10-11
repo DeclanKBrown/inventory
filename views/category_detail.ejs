@@ -10,8 +10,12 @@
     <h2>Items in this Category:</h2>
     <ul>
         <% items.forEach(function(item) { %>
-            <li><%= item.name %> - <%= item.price %></li>
+            <a href="<%= item.url %>">
+                <li><%= item.name %> - $<%= item.price %></li>
+            </a>
         <% }); %>
     </ul>
+    <p><a href="<%= category.url %>/delete" />Delete Category</p>
+    <p><a href="<%= category.url %>/update" />Update Category</p>
 </body>
 </html>

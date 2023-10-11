@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>Edit Category - <%= category.name %></title>
 </head>
+
 <body>
-    <h1><%= title %></h1>
-    <% if (errors && errors.length > 0) { %>
+    <h1>Edit Category - <%= category.name %></h1>
+    <% if (locals.errors) { %>
         <ul>
             <% errors.forEach(function(error) { %>
                 <li><%= error.msg %></li>
             <% }); %>
         </ul>
     <% } %>
-    <form method="post" action="/path/to/submit">
-        <!-- Form fields for category creation -->
+    <form method="POST" action="">
+        <label for="name">Category Name:</label>
+        <input type="text" id="name" name="name" value="<%= category.name %>" required maxlength="100">
+        <button type="submit">Update Category</button>
     </form>
 </body>
+
 </html>

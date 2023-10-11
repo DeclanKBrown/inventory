@@ -7,7 +7,7 @@ const Item = require('../models/item')
 exports.index = asyncHandler(async(req,res, next) => {
     const allItems = await Item.find().exec()
 
-    res.render('index', { items: allItems })
+    res.render('index', { title: 'Grocerys', items: allItems })
 })
 
 exports.item_list = asyncHandler(async(req, res, next) => {
@@ -20,6 +20,7 @@ exports.item_list = asyncHandler(async(req, res, next) => {
 
 exports.item_detail = asyncHandler(async(req, res, next) => {
     const item = await Item.findById(req.params.id).exec()
+    const category = await Category.findById(item.category).exec()
 
     if (item === null) {
         const err = new Error('Item not found')
@@ -28,7 +29,8 @@ exports.item_detail = asyncHandler(async(req, res, next) => {
     }
 
     res.render('item_detail', {
-        item: item
+        item: item,
+        category: category
     })
 })
 

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Detail</title>
+</head>
+<body>
+    <h1><%= item.name %></h1>
+    <p>Category: <%= category.name %></p>
+    <p>Price: $<%= item.price %></p>
+    <p>In Stock: <%= item.numberInStock %></p>
+    <% if (item.expiryDate) { %>
+        <p>Expiry: <%= item.expiryDate %></p>
+    <% } %>
+</body>
+</html>

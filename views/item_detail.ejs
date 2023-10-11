@@ -13,5 +13,7 @@
     <% if (item.expiryDate) { %>
         <p>Expiry: <%= item.expiry_formatted %></p>
     <% } %>
+    <p><a href="<%= item.url %>/delete" />Delete Item</p>
+    <p><a href="<%= item.url %>/update" />Update Item</p>
 </body>
 </html>

@@ -52,7 +52,6 @@ exports.item_create_post = [
         .escape(),
     body('price')
         .notEmpty().withMessage('Price is required')
-        .isDecimal().withMessage('Price must be a decimal number')
         .trim()
         .escape(),
     body('numberInStock')
@@ -82,7 +81,7 @@ exports.item_create_post = [
             res.render('item_form', {
                 title: 'Create Item',
                 item: item,
-                category, category,
+                category: category,
                 errors: errors.array()
             })
         } else {

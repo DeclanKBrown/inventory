@@ -39,7 +39,7 @@ exports.item_create_get = asyncHandler(async(req, res, next) => {
 
     res.render('item_form', {
         title: 'Create Item', 
-        categorys: allCategorys
+        categories: allCategorys
     })
 })
 
@@ -111,8 +111,8 @@ exports.item_delete_post = asyncHandler(async(req, res, next) => {
 })
 
 exports.item_update_get = asyncHandler(async(req, res, next) => {
-    const item = Item.findById(req.params.id).exec()
-    const category = Category.find()
+    const item = await Item.findById(req.params.id).exec()
+    const category =  await Category.find().exec()
 
     if (item === null) {
         const err = new Error('Item not found')
@@ -166,7 +166,7 @@ exports.item_update_post = [
             res.render('item_form', {
                 title: 'Create Item',
                 item: item,
-                category: category,
+                categorys: category,
                 errors: errors.array()
             })
             return
